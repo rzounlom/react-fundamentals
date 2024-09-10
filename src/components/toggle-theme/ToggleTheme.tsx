@@ -10,7 +10,14 @@ const ToggleTheme: FC = () => {
     setDarkMode(!darkMode);
   };
 
+  // styles for the component --> need to devine within the component to have access to the state
   const themeStyles = {
+    display: "flex",
+    "flex-direction": "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+    width: "100%",
     backgroundColor: darkMode ? "#333" : "#fff",
     color: darkMode ? "#fff" : "#000",
     padding: "20px",
@@ -19,8 +26,8 @@ const ToggleTheme: FC = () => {
 
   return (
     <div style={themeStyles}>
-      <h2>Toggle Theme Example</h2>
-      <Button onClick={toggleTheme}>
+      <h1>Toggle Theme Example</h1>
+      <Button onClick={toggleTheme} style={{ marginTop: "20px" }}>
         Toggle to {darkMode ? "Light" : "Dark"} Mode
       </Button>
     </div>

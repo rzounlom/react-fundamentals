@@ -53,6 +53,7 @@ const Props: FC<CondinalRenderingProps> = ({ name }) => {
   );
 };
 
+// styles for the component
 const styles = {
   container: {
     display: "flex",

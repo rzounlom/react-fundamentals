@@ -4,6 +4,7 @@ import ConditionalRendering from "./components/conditional-rendering/Conditional
 import Counter from "./components/counter/Counter";
 import { FC } from "react";
 import Input from "./components/input/Input";
+import ToggleTheme from "./components/toggle-theme/ToggleTheme";
 
 // import Example4TodoApp from './components/Example4TodoApp';
 // import Example5FetchData from './components/Example5FetchData';
@@ -32,7 +33,7 @@ const App: FC = () => {
         <Counter />
       </section>
       <section id="toggle-theme" style={styles.section}>
-        {/* <Example6ToggleTheme /> */}
+        <ToggleTheme />
       </section>
       <section id="conditional-rendering" style={styles.section}>
         <ConditionalRendering name="John Doe" />
@@ -50,6 +51,7 @@ const App: FC = () => {
   );
 };
 
+// styles for the component
 const styles = {
   section: {
     height: "75vh",
