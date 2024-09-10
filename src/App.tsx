@@ -4,11 +4,8 @@ import ConditionalRendering from "./components/conditional-rendering/Conditional
 import Counter from "./components/counter/Counter";
 import { FC } from "react";
 import Input from "./components/input/Input";
+import TodoApp from "./components/todos/TodoApp";
 import ToggleTheme from "./components/toggle-theme/ToggleTheme";
-
-// import Example4TodoApp from './components/Example4TodoApp';
-// import Example5FetchData from './components/Example5FetchData';
-// import Example6ToggleTheme from './components/Example6ToggleTheme';
 
 const App: FC = () => {
   return (
@@ -22,9 +19,9 @@ const App: FC = () => {
             <Nav.Link href="#conditional-rendering">
               Conditional Rendering
             </Nav.Link>
-            <Nav.Link href="#todo">Todo App</Nav.Link>
             <Nav.Link href="#input">Input State</Nav.Link>
-            <Nav.Link href="#fetch">Fetch Data</Nav.Link>
+            <Nav.Link href="#todo-app">Todo App</Nav.Link>
+            {/* <Nav.Link href="#fetch">Fetch Data</Nav.Link> */}
           </Nav>
         </Container>
       </Navbar>
@@ -38,14 +35,11 @@ const App: FC = () => {
       <section id="conditional-rendering" style={styles.section}>
         <ConditionalRendering name="John Doe" />
       </section>
-      <section id="todo" style={styles.section}>
-        {/* <Example4TodoApp /> */}
-      </section>
       <section id="input" style={styles.section}>
         <Input />
       </section>
-      <section id="fetch" style={styles.section}>
-        {/* <Example5FetchData /> */}
+      <section id="todo-app" style={styles.section}>
+        <TodoApp />
       </section>
     </div>
   );
