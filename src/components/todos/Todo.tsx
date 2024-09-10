@@ -19,7 +19,7 @@ const Todo: FC<TodoProps> = ({ todo, toggleComplete, deleteTodo }) => {
 
   return (
     <div style={styles.container}>
-      <p style={todoSyles.todo}>{todo.title}</p>
+      <p style={todoSyles.todo}>{todo?.title}</p>
       <div style={styles.btnGroup}>
         <Button
           style={styles.btn}
