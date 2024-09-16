@@ -1,5 +1,5 @@
 // src/components/Example6ToggleTheme.tsx
-import { FC, useState } from "react";
+import { CSSProperties, FC, useState } from "react";
 
 import { Button } from "react-bootstrap";
 
@@ -11,9 +11,9 @@ const ToggleTheme: FC = () => {
   };
 
   // styles for the component --> need to devine within the component to have access to the state
-  const themeStyles = {
+  const themeStyles: CSSProperties = {
     display: "flex",
-    "flex-direction": "column",
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     height: "100%",

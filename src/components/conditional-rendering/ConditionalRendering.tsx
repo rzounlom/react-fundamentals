@@ -1,5 +1,5 @@
 // src/components/Example3PropsDemo.tsx
-import { FC, useState } from "react";
+import { CSSProperties, FC, useState } from "react";
 
 import { Button } from "react-bootstrap";
 
@@ -12,7 +12,7 @@ const Props: FC<CondinalRenderingProps> = ({ name }) => {
   const [show2, setShow2] = useState<boolean>(true);
 
   return (
-    <div style={styles.container}>
+    <div style={styles}>
       <h2>Props Example</h2>
       <p>Hello, {name}! Welcome to React!</p>
 
@@ -54,14 +54,12 @@ const Props: FC<CondinalRenderingProps> = ({ name }) => {
 };
 
 // styles for the component
-const styles = {
-  container: {
-    display: "flex",
-    "flex-direction": "column",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100%",
-  },
+const styles: CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "100%",
 };
 
 export default Props;

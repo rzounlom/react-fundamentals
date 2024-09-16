@@ -1,8 +1,10 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 
+import ComplexStateForm from "./components/complex-state-form/ComplexStateForm";
 import ConditionalRendering from "./components/conditional-rendering/ConditionalRendering";
 import Counter from "./components/counter/Counter";
 import { FC } from "react";
+import FormExample from "./components/form-example/FormExample";
 import Input from "./components/input/Input";
 import TodoApp from "./components/todos/TodoApp";
 import ToggleTheme from "./components/toggle-theme/ToggleTheme";
@@ -20,6 +22,8 @@ const App: FC = () => {
               Conditional Rendering
             </Nav.Link>
             <Nav.Link href="#input">Input State</Nav.Link>
+            <Nav.Link href="#form">Form Example</Nav.Link>
+            <Nav.Link href="#complex-state">Complex State</Nav.Link>
             <Nav.Link href="#todo-app">Todo App</Nav.Link>
             {/* <Nav.Link href="#fetch">Fetch Data</Nav.Link> */}
           </Nav>
@@ -37,6 +41,12 @@ const App: FC = () => {
       </section>
       <section id="input" style={styles.section}>
         <Input />
+      </section>
+      <section id="form" style={styles.section}>
+        <FormExample />
+      </section>
+      <section id="complex-state" style={styles.section}>
+        <ComplexStateForm />
       </section>
       <section id="todo-app" style={styles.section}>
         <TodoApp />
