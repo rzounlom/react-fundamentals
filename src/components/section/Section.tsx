@@ -16,7 +16,7 @@ const Section: FC<SectionProps> = ({ name, children }) => {
 // styles for the component
 const styles = {
   section: {
-    height: "75vh",
+    minHeight: "75vh",
     width: "100vw",
     display: "flex",
     justifyContent: "center",
