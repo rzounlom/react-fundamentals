@@ -42,7 +42,7 @@ const ComplexStateForm: FC = () => {
 
   return (
     <div>
-      <h2>Updated Form Layout Example</h2>
+      <h2>Complex Form State Example</h2>
 
       {/* The form element with onSubmit handler */}
       <Form onSubmit={handleSubmit}>

@@ -1,11 +1,13 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 
+import BasicForm from "./components/form-examples/BasicForm";
+import BasicInput from "./components/input-examples/BasicInput";
 import ComplexStateForm from "./components/complex-state-form/ComplexStateForm";
 import ConditionalRendering from "./components/conditional-rendering/ConditionalRendering";
 import Counter from "./components/counter/Counter";
 import { FC } from "react";
-import FormExample from "./components/form-example/FormExample";
-import Input from "./components/input/Input";
+import RbForm from "./components/form-examples/RbForm";
+import ReactBootstrapInput from "./components/input-examples/RbInput";
 import TodoApp from "./components/todos/TodoApp";
 import ToggleTheme from "./components/toggle-theme/ToggleTheme";
 
@@ -21,8 +23,10 @@ const App: FC = () => {
             <Nav.Link href="#conditional-rendering">
               Conditional Rendering
             </Nav.Link>
-            <Nav.Link href="#input">Input State</Nav.Link>
-            <Nav.Link href="#form">Form Example</Nav.Link>
+            <Nav.Link href="#basic-input">Basic Input</Nav.Link>
+            <Nav.Link href="#rb-input">RB Input</Nav.Link>
+            <Nav.Link href="#basic-form">Basic Form</Nav.Link>
+            <Nav.Link href="#rb-form">RB Form</Nav.Link>
             <Nav.Link href="#complex-state">Complex State</Nav.Link>
             <Nav.Link href="#todo-app">Todo App</Nav.Link>
             {/* <Nav.Link href="#fetch">Fetch Data</Nav.Link> */}
@@ -39,11 +43,17 @@ const App: FC = () => {
       <section id="conditional-rendering" style={styles.section}>
         <ConditionalRendering name="John Doe" />
       </section>
-      <section id="input" style={styles.section}>
-        <Input />
+      <section id="basic-input" style={styles.section}>
+        <BasicInput />
       </section>
-      <section id="form" style={styles.section}>
-        <FormExample />
+      <section id="rb-input" style={styles.section}>
+        <ReactBootstrapInput />
+      </section>
+      <section id="basic-form" style={styles.section}>
+        <BasicForm />
+      </section>
+      <section id="rb-form" style={styles.section}>
+        <RbForm />
       </section>
       <section id="complex-state" style={styles.section}>
         <ComplexStateForm />

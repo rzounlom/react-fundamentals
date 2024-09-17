@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 
 import { Form } from "react-bootstrap";
 
-const Input: FC = () => {
+const ReactBootstrapInput: FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
 
   // Updates state as user types in input field
@@ -13,7 +13,7 @@ const Input: FC = () => {
 
   return (
     <div>
-      <h2>Controlled Input Example</h2>
+      <h2>Controlled RB Input Example</h2>
       <Form>
         <Form.Group controlId="formBasicInput">
           <Form.Label>Enter Text</Form.Label>
@@ -30,4 +30,4 @@ const Input: FC = () => {
   );
 };
 
-export default Input;
+export default ReactBootstrapInput;
