@@ -7,6 +7,7 @@ import RbForm from "../components/form-examples/RbForm";
 import ReactBootstrapInput from "../components/input-examples/RbInput";
 import TodoApp from "../components/todos/TodoApp";
 import ToggleTheme from "../components/toggle-theme/ToggleTheme";
+import UseEffectBasics from "../components/useeffect-basics/UseEffect";
 import UsersApp from "../components/users/UsersApp";
 
 export const sections = [
@@ -25,6 +26,11 @@ export const sections = [
     id: "complex-state",
     label: "Complex State Form",
     component: ComplexStateForm,
+  },
+  {
+    id: "useeffect-basics",
+    label: "useEffect Basics",
+    component: UseEffectBasics,
   },
   { id: "todo-app", label: "Todo App", component: TodoApp },
   { id: "users-app", label: "Users App", component: UsersApp },

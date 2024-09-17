@@ -16,7 +16,7 @@ const MyNavbar: React.FC = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {sections.map(({ id, label }) => (
-              <Nav.Link key={id} href={`#${id}`}>
+              <Nav.Link key={id} href={`#${id}`} style={{ fontSize: "14px" }}>
                 {label}
               </Nav.Link>
             ))}
