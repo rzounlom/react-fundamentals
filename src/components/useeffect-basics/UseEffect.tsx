@@ -1,4 +1,4 @@
-import { Button, Spinner } from "react-bootstrap";
+import { Button, Container, Spinner } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 
 const UseEffectBasics: React.FC = () => {
@@ -53,7 +53,7 @@ const UseEffectBasics: React.FC = () => {
   };
 
   return (
-    <div>
+    <Container>
       <h2>Understanding useEffect Hook</h2>
 
       {/* Counter Example */}
@@ -96,7 +96,7 @@ const UseEffectBasics: React.FC = () => {
         and setting up event listeners. It replaces lifecycle methods like
         componentDidMount, componentDidUpdate, and componentWillUnmount.
       </p>
-    </div>
+    </Container>
   );
 };
 

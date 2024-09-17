@@ -1,8 +1,6 @@
 // src/components/FormExample.tsx
 import React, { useState } from "react";
 
-import { Button } from "react-bootstrap";
-
 const BasicForm: React.FC = () => {
   // Using useState to manage form input values for each field
   const [formData, setFormData] = useState({
@@ -13,7 +11,12 @@ const BasicForm: React.FC = () => {
 
   // Event handler to update state when an input field changes
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log({ eventObject: event, targetObject: event.target });
+    console.log({
+      eventObject: event,
+      targetObject: event.target,
+      inputName: event.target.name,
+      inputValue: event.target.value,
+    });
     // Access the name of the field and its value from the event object
     const { name, value } = event.target;
 

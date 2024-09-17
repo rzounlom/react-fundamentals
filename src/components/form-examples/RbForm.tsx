@@ -41,7 +41,7 @@ const FormExample: React.FC = () => {
 
   return (
     <div>
-      <h2>RB Form Example</h2>
+      <h2>React-bootstrap Form Example</h2>
 
       {/* The form element, with an onSubmit handler */}
       <Form onSubmit={handleSubmit}>

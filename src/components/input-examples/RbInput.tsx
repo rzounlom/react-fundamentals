@@ -13,7 +13,7 @@ const ReactBootstrapInput: FC = () => {
 
   return (
     <div>
-      <h2>Controlled RB Input Example</h2>
+      <h2>Controlled React-bootstrap Input Example</h2>
       <Form>
         <Form.Group controlId="formBasicInput">
           <Form.Label>Enter Text</Form.Label>
