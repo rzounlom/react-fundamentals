@@ -1,11 +1,12 @@
 // src/components/Example2InputState.tsx
-import { FC, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 
 const BasicInput: FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
 
   // Updates state as user types in input field
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log({ inputValue: e.target.value, inputName: e.target.name });
     setInputValue(e.target.value);
   };
 
@@ -17,6 +18,7 @@ const BasicInput: FC = () => {
         <br />
         <input
           type="text"
+          name="testInput"
           value={inputValue}
           onChange={handleChange}
           placeholder="Type something..."

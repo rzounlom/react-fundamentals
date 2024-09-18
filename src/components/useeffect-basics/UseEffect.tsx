@@ -7,6 +7,13 @@ const UseEffectBasics: React.FC = () => {
   const [data, setData] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
+  interface Post {
+    id: number;
+    userId: number;
+    body: string;
+    title: string;
+  }
+
   // Effect 1: Update the document title when the count changes
   useEffect(() => {
     document.title = `Count: ${count}`;
@@ -24,7 +31,7 @@ const UseEffectBasics: React.FC = () => {
           "https://jsonplaceholder.typicode.com/posts?_limit=5"
         );
         const result = await response.json();
-        setData(result.map((post: any) => post.title));
+        setData(result.map((post: Post) => post.title));
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {

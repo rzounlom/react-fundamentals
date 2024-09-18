@@ -43,6 +43,8 @@ const BasicForm: React.FC = () => {
     });
   };
 
+  console.log({ formData });
+
   return (
     <div>
       <h2>Basic Form Example</h2>
