@@ -1,32 +1,36 @@
-import { CSSProperties, FC } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { FC } from "react";
+import { Col, Row } from "react-bootstrap";
 
 import { User } from "../../types";
 import UserCard from "./UserCard";
 
-interface UsersListProps {
+interface UserListProps {
   users: User[];
+  onDeleteUser?: (id: string) => void;
+  onContactUser?: (email: string) => void;
+  showActions?: boolean;
 }
 
-const UsersList: FC<UsersListProps> = ({ users }) => {
+const UserList: FC<UserListProps> = ({
+  users,
+  onDeleteUser,
+  onContactUser,
+  showActions = false,
+}) => {
   return (
-    <Container style={styles}>
-      <Row>
-        {users.map((user) => (
-          <Col key={user.id} md={4} className="mb-4">
-            <UserCard user={user} />
-          </Col>
-        ))}
-      </Row>
-    </Container>
+    <Row>
+      {users.map((user) => (
+        <Col key={user.id} md={4} className="mb-4">
+          <UserCard
+            user={user}
+            onDelete={onDeleteUser}
+            onContact={onContactUser}
+            showActions={showActions}
+          />
+        </Col>
+      ))}
+    </Row>
   );
 };
 
-const styles: CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "10px",
-  marginTop: "50px",
-};
-
-export default UsersList;
+export default UserList;
