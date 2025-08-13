@@ -6,6 +6,7 @@ import Counter from "../components/counter/Counter";
 import PropsExample from "../components/props-example/PropsExample";
 import RbForm from "../components/form-examples/RbForm";
 import ReactBootstrapInput from "../components/input-examples/RbInput";
+import StateExamples from "../components/state-examples/StateExamples";
 import TodoApp from "../components/todos/TodoApp";
 import ToggleTheme from "../components/toggle-theme/ToggleTheme";
 import UseEffectBasics from "../components/useeffect-basics/UseEffect";
@@ -13,6 +14,7 @@ import UsersApp from "../components/users/UsersApp";
 
 export const sections = [
   { id: "props-example", label: "Props Example", component: PropsExample },
+  { id: "state-examples", label: "State Examples", component: StateExamples },
   { id: "counter", label: "Counter", component: Counter },
   { id: "toggle-theme", label: "Toggle Theme", component: ToggleTheme },
   {
