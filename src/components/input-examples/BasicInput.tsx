@@ -1,5 +1,5 @@
 // src/components/input-examples/BasicInput.tsx
-import { Alert, Badge, Card, Form } from "react-bootstrap";
+import { Alert, Badge, Card } from "react-bootstrap";
 import { ChangeEvent, FC, useState } from "react";
 
 // Simple controlled input
@@ -14,15 +14,19 @@ const SimpleInput: FC = () => {
     <Card className="mb-3">
       <Card.Body>
         <Card.Title>Simple Controlled Input</Card.Title>
-        <Form.Group>
-          <Form.Label>Enter Text</Form.Label>
-          <Form.Control
+        <div className="mb-3">
+          <label htmlFor="simpleInput" className="form-label">
+            Enter Text
+          </label>
+          <input
+            id="simpleInput"
             type="text"
+            className="form-control"
             value={inputValue}
             onChange={handleChange}
             placeholder="Type something..."
           />
-        </Form.Group>
+        </div>
         <div className="mt-2">
           <strong>Current Value:</strong>{" "}
           <Badge bg="primary">{inputValue || "empty"}</Badge>
@@ -53,19 +57,26 @@ const ValidatedInput: FC = () => {
     <Card className="mb-3">
       <Card.Body>
         <Card.Title>Input with Validation</Card.Title>
-        <Form.Group>
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control
+        <div className="mb-3">
+          <label htmlFor="emailInput" className="form-label">
+            Email Address
+          </label>
+          <input
+            id="emailInput"
             type="email"
+            className={`form-control ${
+              !isValid && email !== "" ? "is-invalid" : ""
+            }`}
             value={email}
             onChange={handleChange}
             placeholder="Enter email address"
-            isInvalid={!isValid && email !== ""}
           />
-          <Form.Control.Feedback type="invalid">
-            Please enter a valid email address.
-          </Form.Control.Feedback>
-        </Form.Group>
+          {!isValid && email !== "" && (
+            <div className="invalid-feedback">
+              Please enter a valid email address.
+            </div>
+          )}
+        </div>
         <div className="mt-2">
           <strong>Status:</strong>{" "}
           <Badge bg={isValid ? "success" : "danger"}>
@@ -93,16 +104,19 @@ const CharacterCounterInput: FC = () => {
     <Card className="mb-3">
       <Card.Body>
         <Card.Title>Input with Character Counter</Card.Title>
-        <Form.Group>
-          <Form.Label>Bio (Max {maxLength} characters)</Form.Label>
-          <Form.Control
-            as="textarea"
+        <div className="mb-3">
+          <label htmlFor="bioTextarea" className="form-label">
+            Bio (Max {maxLength} characters)
+          </label>
+          <textarea
+            id="bioTextarea"
+            className="form-control"
             value={text}
             onChange={handleChange}
             placeholder="Tell us about yourself..."
             rows={3}
           />
-        </Form.Group>
+        </div>
         <div className="mt-2">
           <strong>Characters:</strong>{" "}
           <Badge bg={text.length > maxLength * 0.8 ? "warning" : "info"}>
@@ -163,16 +177,20 @@ const BasicInput: FC = () => {
         <Card>
           <Card.Body>
             <Card.Title>Classic Controlled Input</Card.Title>
-            <Form.Group>
-              <Form.Label>Enter Text</Form.Label>
-              <Form.Control
+            <div className="mb-3">
+              <label htmlFor="originalInput" className="form-label">
+                Enter Text
+              </label>
+              <input
+                id="originalInput"
                 type="text"
                 name="testInput"
+                className="form-control"
                 value={inputValue}
                 onChange={handleChange}
                 placeholder="Type something..."
               />
-            </Form.Group>
+            </div>
             <div className="mt-2">
               <strong>Current Input:</strong>{" "}
               <Badge bg="light" text="dark">

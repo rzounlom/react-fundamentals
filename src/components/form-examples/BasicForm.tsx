@@ -1,5 +1,5 @@
 // src/components/form-examples/BasicForm.tsx
-import { Alert, Badge, Button, Card, Form } from "react-bootstrap";
+import { Alert, Badge, Button, Card } from "react-bootstrap";
 import React, { useState } from "react";
 
 // Simple form with basic validation
@@ -51,45 +51,53 @@ const SimpleForm: React.FC = () => {
     }
   };
 
+  console.log({ formData });
+
   return (
     <Card className="mb-3">
       <Card.Body>
         <Card.Title>Simple Form with Validation</Card.Title>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label htmlFor="nameInput" className="form-label">
+              Name
+            </label>
+            <input
+              id="nameInput"
               type="text"
               name="name"
+              className={`form-control ${errors.name ? "is-invalid" : ""}`}
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter your name"
-              isInvalid={!!errors.name}
             />
-            <Form.Control.Feedback type="invalid">
-              {errors.name}
-            </Form.Control.Feedback>
-          </Form.Group>
+            {errors.name && (
+              <div className="invalid-feedback">{errors.name}</div>
+            )}
+          </div>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
+          <div className="mb-3">
+            <label htmlFor="emailInput" className="form-label">
+              Email
+            </label>
+            <input
+              id="emailInput"
               type="email"
               name="email"
+              className={`form-control ${errors.email ? "is-invalid" : ""}`}
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
-              isInvalid={!!errors.email}
             />
-            <Form.Control.Feedback type="invalid">
-              {errors.email}
-            </Form.Control.Feedback>
-          </Form.Group>
+            {errors.email && (
+              <div className="invalid-feedback">{errors.email}</div>
+            )}
+          </div>
 
           <Button type="submit" variant="primary">
             Submit
           </Button>
-        </Form>
+        </form>
       </Card.Body>
     </Card>
   );
@@ -147,64 +155,84 @@ const AdvancedForm: React.FC = () => {
     <Card className="mb-3">
       <Card.Body>
         <Card.Title>Advanced Form with Multiple Field Types</Card.Title>
-        <Form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-md-6">
-              <Form.Group className="mb-3">
-                <Form.Label>First Name</Form.Label>
-                <Form.Control
+              <div className="mb-3">
+                <label htmlFor="firstNameInput" className="form-label">
+                  First Name
+                </label>
+                <input
+                  id="firstNameInput"
                   type="text"
                   name="firstName"
+                  className="form-control"
                   value={formData.firstName}
                   onChange={handleChange}
                   placeholder="Enter first name"
                 />
-              </Form.Group>
+              </div>
             </div>
             <div className="col-md-6">
-              <Form.Group className="mb-3">
-                <Form.Label>Last Name</Form.Label>
-                <Form.Control
+              <div className="mb-3">
+                <label htmlFor="lastNameInput" className="form-label">
+                  Last Name
+                </label>
+                <input
+                  id="lastNameInput"
                   type="text"
                   name="lastName"
+                  className="form-control"
                   value={formData.lastName}
                   onChange={handleChange}
                   placeholder="Enter last name"
                 />
-              </Form.Group>
+              </div>
             </div>
           </div>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
+          <div className="mb-3">
+            <label htmlFor="advancedEmailInput" className="form-label">
+              Email
+            </label>
+            <input
+              id="advancedEmailInput"
               type="email"
               name="email"
+              className="form-control"
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter email"
             />
-          </Form.Group>
+          </div>
 
           <div className="row">
             <div className="col-md-6">
-              <Form.Group className="mb-3">
-                <Form.Label>Age</Form.Label>
-                <Form.Control
+              <div className="mb-3">
+                <label htmlFor="ageInput" className="form-label">
+                  Age
+                </label>
+                <input
+                  id="ageInput"
                   type="number"
                   name="age"
+                  className="form-control"
                   value={formData.age}
                   onChange={handleChange}
                   min="0"
                   max="120"
                 />
-              </Form.Group>
+              </div>
             </div>
             <div className="col-md-6">
-              <Form.Group className="mb-3">
-                <Form.Label>Gender</Form.Label>
-                <Form.Select
+              <div className="mb-3">
+                <label htmlFor="genderSelect" className="form-label">
+                  Gender
+                </label>
+                <select
+                  id="genderSelect"
                   name="gender"
+                  className="form-select"
                   value={formData.gender}
                   onChange={handleChange}
                 >
@@ -212,57 +240,73 @@ const AdvancedForm: React.FC = () => {
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
-                </Form.Select>
-              </Form.Group>
+                </select>
+              </div>
             </div>
           </div>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Interests</Form.Label>
+          <div className="mb-3">
+            <label className="form-label">Interests</label>
             <div>
               {["Reading", "Gaming", "Sports", "Music", "Travel"].map(
                 (interest) => (
-                  <Form.Check
-                    key={interest}
-                    inline
-                    type="checkbox"
-                    name="interests"
-                    value={interest}
-                    checked={formData.interests.includes(interest)}
-                    onChange={handleChange}
-                    label={interest}
-                  />
+                  <div key={interest} className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      name="interests"
+                      id={`interest-${interest}`}
+                      value={interest}
+                      checked={formData.interests.includes(interest)}
+                      onChange={handleChange}
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor={`interest-${interest}`}
+                    >
+                      {interest}
+                    </label>
+                  </div>
                 )
               )}
             </div>
-          </Form.Group>
+          </div>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Bio</Form.Label>
-            <Form.Control
-              as="textarea"
+          <div className="mb-3">
+            <label htmlFor="bioTextarea" className="form-label">
+              Bio
+            </label>
+            <textarea
+              id="bioTextarea"
               name="bio"
+              className="form-control"
               value={formData.bio}
               onChange={handleChange}
               placeholder="Tell us about yourself"
               rows={3}
             />
-          </Form.Group>
+          </div>
 
-          <Form.Group className="mb-3">
-            <Form.Check
-              type="checkbox"
-              name="newsletter"
-              checked={formData.newsletter}
-              onChange={handleChange}
-              label="Subscribe to newsletter"
-            />
-          </Form.Group>
+          <div className="mb-3">
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                name="newsletter"
+                id="newsletterCheck"
+                checked={formData.newsletter}
+                onChange={handleChange}
+              />
+              <label className="form-check-label" htmlFor="newsletterCheck">
+                Subscribe to newsletter
+              </label>
+            </div>
+          </div>
 
           <Button type="submit" variant="success">
             Submit Advanced Form
           </Button>
-        </Form>
+        </form>
       </Card.Body>
     </Card>
   );
@@ -326,47 +370,59 @@ const BasicForm: React.FC = () => {
         <Card>
           <Card.Body>
             <Card.Title>Classic Controlled Form</Card.Title>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label htmlFor="originalNameInput" className="form-label">
+                  Name
+                </label>
+                <input
+                  id="originalNameInput"
                   type="text"
                   name="name"
+                  className="form-control"
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter your name"
                   required
                 />
-              </Form.Group>
+              </div>
 
-              <Form.Group className="mb-3">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
+              <div className="mb-3">
+                <label htmlFor="originalEmailInput" className="form-label">
+                  Email
+                </label>
+                <input
+                  id="originalEmailInput"
                   type="email"
                   name="email"
+                  className="form-control"
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email"
                   required
                 />
-              </Form.Group>
+              </div>
 
-              <Form.Group className="mb-3">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
+              <div className="mb-3">
+                <label htmlFor="passwordInput" className="form-label">
+                  Password
+                </label>
+                <input
+                  id="passwordInput"
                   type="password"
                   name="password"
+                  className="form-control"
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="Password"
                   required
                 />
-              </Form.Group>
+              </div>
 
               <Button type="submit" variant="primary">
                 Submit
               </Button>
-            </Form>
+            </form>
 
             <div className="mt-3">
               <strong>Current Form State:</strong>
